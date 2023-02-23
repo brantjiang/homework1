@@ -1,0 +1,20 @@
+(1) What is the difference between a merge and a rebase?
+A merge creates a non-linear commit history where multiple "parallel" commits have their changes merged together. 
+The merged changes are then committed to the master repository in a final commit to re-unify the master repository's commit history.
+
+Example:
+A <- B <-C <-D
+         ^   ^
+         |   |
+         E <-M
+Commits D and E are committed in "parallel" creating a version conflict -- Commit M merges the changes (not always perfectly) between D and E and re-unifies the master respository's commit history. 
+
+
+A rebase creates linear commit history where multiple "parallel" commits are sequantialized linearly, basing each commit on a previous commit. 
+Each "parallel" commit to the master branch (with the exception of the first "parallel" commit) is now committed after pulling the master respository after a previous "parallel" commit. 
+Example:
+A <- B <-C <-D <-E'
+
+Previously "parallel commits" D and E are linearized via. rebasing to avoid a version conflict -- Commit E is made after pulling the changes to the master repository caused by commit D. 
+Commit E is now "based" on the master repository after commit D. 
+Notice that the master repository's commit history remains linear when we rebase Commit E with Commit D.
