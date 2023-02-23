@@ -18,3 +18,9 @@ A <- B <-C <-D <-E'
 Previously "parallel commits" D and E are linearized via. rebasing to avoid a version conflict -- Commit E is made after pulling the changes to the master repository caused by commit D. 
 Commit E is now "based" on the master repository after commit D. 
 Notice that the master repository's commit history remains linear when we rebase Commit E with Commit D.
+___________________________________________________________________________________________________________________________________________________________
+
+(2) What is a remote repository?
+A remote repository is just a project that is not hosted on your local machine. 
+Instead, the project is hosted on another machine (typically reachable through the internet). 
+Methods of interacting with remote repositories typically consists of "git push" for sending local changes to the remote repository and "git pull" or "git fetch" for retrieving remote changes to the local repository. 
